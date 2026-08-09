@@ -1,0 +1,14 @@
+packages:
+  - apps/*
+  - packages/*
+
+allowBuilds:
+  '@prisma/client': false
+  '@prisma/engines': false
+  '@reown/appkit': false
+  bufferutil: false
+  esbuild: false
+  keccak: false
+  prisma: false
+  sharp: false
+  utf-8-validate: false

@@ -1,0 +1,16 @@
+node_modules/
+.next/
+dist/
+coverage/
+.env
+.env.local
+out/
+cache/
+broadcast/
+artifacts/
+packages/contracts/lib/
+packages/subgraph/generated/
+packages/subgraph/build/
+*.log
+*.tsbuildinfo
+.DS_Store

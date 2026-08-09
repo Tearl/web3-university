@@ -1,0 +1,30 @@
+type Course @entity(immutable: false) {
+  id: ID!
+  courseId: BigInt!
+  teacher: Bytes!
+  priceYD: BigInt!
+  metadataURI: String!
+  status: Int!
+  createdAt: BigInt!
+  updatedAt: BigInt!
+  purchases: [Purchase!]! @derivedFrom(field: "course")
+}
+
+type Purchase @entity(immutable: true) {
+  id: ID!
+  course: Course!
+  buyer: Bytes!
+  priceYD: BigInt!
+  purchasedAt: BigInt!
+  transactionHash: Bytes!
+}
+
+type Certificate @entity(immutable: true) {
+  id: ID!
+  tokenId: BigInt!
+  courseId: BigInt!
+  student: Bytes!
+  tokenURI: String!
+  issuedAt: BigInt!
+  transactionHash: Bytes!
+}

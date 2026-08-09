@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String             @id @default(cuid())
+  privyDid      String             @unique @map("privy_did")
+  walletAddress String             @unique @map("wallet_address")
+  username      String?
+  createdAt     DateTime           @default(now()) @map("created_at")
+  updatedAt     DateTime           @updatedAt @map("updated_at")
+  comments      Comment[]
+  progress      LearningProgress[]
+
+  @@map("users")
+}
+
+model CourseDetail {
+  courseId       BigInt    @id @map("course_id")
+  title          String
+  description    String
+  coverUrl       String    @map("cover_url")
+  teacherProfile Json?     @map("teacher_profile")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+  lessons        Lesson[]
+  comments       Comment[]
+  progress       LearningProgress[]
+
+  @@map("course_details")
+}
+
+model Lesson {
+  id          String       @id @default(cuid())
+  courseId    BigInt       @map("course_id")
+  title       String
+  videoKey    String       @map("video_key")
+  durationSec Int          @map("duration_sec")
+  orderIndex  Int          @map("order_index")
+  course      CourseDetail @relation(fields: [courseId], references: [courseId], onDelete: Cascade)
+  progress    LearningProgress[]
+
+  @@unique([courseId, orderIndex])
+  @@map("lessons")
+}
+
+model Comment {
+  id        String       @id @default(cuid())
+  courseId  BigInt       @map("course_id")
+  userId    String       @map("user_id")
+  content   String
+  status    CommentStatus @default(VISIBLE)
+  createdAt DateTime     @default(now()) @map("created_at")
+  course    CourseDetail @relation(fields: [courseId], references: [courseId], onDelete: Cascade)
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([courseId, createdAt])
+  @@map("comments")
+}
+
+model LearningProgress {
+  id             String       @id @default(cuid())
+  userId         String       @map("user_id")
+  courseId       BigInt       @map("course_id")
+  lessonId       String       @map("lesson_id")
+  watchedSeconds Int          @default(0) @map("watched_seconds")
+  completed      Boolean      @default(false)
+  updatedAt      DateTime     @updatedAt @map("updated_at")
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course         CourseDetail @relation(fields: [courseId], references: [courseId], onDelete: Cascade)
+  lesson         Lesson       @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@index([userId, courseId])
+  @@map("learning_progress")
+}
+
+model ProfileNonce {
+  id        String    @id @default(cuid())
+  wallet    String
+  nonce     String    @unique
+  expiresAt DateTime  @map("expires_at")
+  usedAt    DateTime? @map("used_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@index([wallet, expiresAt])
+  @@map("profile_nonces")
+}
+
+model OracleEvidence {
+  id           String   @id @default(cuid())
+  wallet       String
+  courseId     BigInt   @map("course_id")
+  progress     Int
+  evidenceHash String   @map("evidence_hash")
+  issuedAt     DateTime @default(now()) @map("issued_at")
+
+  @@unique([wallet, courseId])
+  @@map("oracle_evidence")
+}
+
+enum CommentStatus {
+  VISIBLE
+  HIDDEN
+  PENDING
+}

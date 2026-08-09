@@ -1,0 +1,15 @@
+{
+  "name": "@web3-university/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p artifacts && solcjs --base-path . --include-path node_modules --abi --bin src/YDToken.sol src/CourseMarket.sol src/CourseCertificate.sol src/CompletionOracle.sol -o artifacts",
+    "test": "pnpm build"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0"
+  },
+  "devDependencies": {
+    "solc": "^0.8.30"
+  }
+}

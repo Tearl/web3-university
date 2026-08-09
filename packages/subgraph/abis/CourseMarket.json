@@ -1,0 +1,5 @@
+[
+  {"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"courseId","type":"uint256"},{"indexed":true,"internalType":"address","name":"teacher","type":"address"},{"indexed":false,"internalType":"uint256","name":"priceYD","type":"uint256"},{"indexed":false,"internalType":"string","name":"metadataURI","type":"string"}],"name":"CourseSubmitted","type":"event"},
+  {"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"courseId","type":"uint256"},{"indexed":false,"internalType":"enum CourseMarket.CourseStatus","name":"status","type":"uint8"}],"name":"CourseStatusChanged","type":"event"},
+  {"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"courseId","type":"uint256"},{"indexed":true,"internalType":"address","name":"buyer","type":"address"},{"indexed":false,"internalType":"uint256","name":"priceYD","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"txTime","type":"uint256"}],"name":"CoursePurchased","type":"event"}
+]

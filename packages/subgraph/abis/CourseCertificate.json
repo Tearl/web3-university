@@ -1,0 +1,3 @@
+[
+  {"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"},{"indexed":true,"internalType":"uint256","name":"courseId","type":"uint256"},{"indexed":true,"internalType":"address","name":"student","type":"address"},{"indexed":false,"internalType":"string","name":"tokenURI","type":"string"}],"name":"CertificateIssued","type":"event"}
+]
