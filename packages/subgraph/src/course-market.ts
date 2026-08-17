@@ -34,5 +34,7 @@ export function handleCoursePurchased(event: CoursePurchased): void {
   purchase.priceYD = event.params.priceYD;
   purchase.purchasedAt = event.params.txTime;
   purchase.transactionHash = event.transaction.hash;
+  purchase.blockNumber = event.block.number;
+  purchase.logIndex = event.logIndex;
   purchase.save();
 }

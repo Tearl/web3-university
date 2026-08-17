@@ -3,7 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "mkdir -p artifacts && solcjs --base-path . --include-path node_modules --abi --bin src/YDToken.sol src/CourseMarket.sol src/CourseCertificate.sol src/CompletionOracle.sol -o artifacts",
+    "build": "mkdir -p artifacts && solcjs --base-path . --include-path node_modules --abi --bin src/YDToken.sol src/CourseMarket.sol src/CourseCertificate.sol src/CompletionOracle.sol src/MockUSDC.sol src/TestnetSwapGateway.sol -o artifacts",
+    "abi:export": "node scripts/export-abi.mjs",
+    "deploy:sepolia": "node scripts/run-sepolia.mjs deploy",
+    "deploy:cre:sepolia": "node scripts/run-sepolia.mjs deploy-cre",
+    "configure:cre:sepolia": "node scripts/run-sepolia.mjs configure-cre",
+    "seed:sepolia": "node scripts/run-sepolia.mjs seed",
+    "fund:sepolia": "node scripts/run-sepolia.mjs fund",
+    "deploy:dex:sepolia": "node scripts/run-sepolia.mjs deploy-dex",
+    "seed:dex:sepolia": "node scripts/run-sepolia.mjs seed-dex",
+    "manifest:sepolia": "node scripts/write-deployment-manifest.mjs broadcast/DeploySepolia.s.sol/11155111/run-latest.json deployments/sepolia.json",
+    "manifest:cre:sepolia": "node scripts/write-cre-manifest.mjs broadcast/DeployCREOracleSepolia.s.sol/11155111/run-latest.json deployments/sepolia-cre.json",
+    "manifest:dex:sepolia": "node scripts/write-dex-manifest.mjs broadcast/DeployDexSepolia.s.sol/11155111/run-latest.json broadcast/SeedDexLiquiditySepolia.s.sol/11155111/run-latest.json deployments/sepolia-dex.json",
     "test": "pnpm build"
   },
   "dependencies": {

@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { CourseCard } from "../components/course-card";
+import { CourseCatalog } from "../components/course-catalog";
 import { Icon } from "../components/icons";
-import { demoCourses } from "../lib/demo-data";
 
 export default function HomePage() {
   return (
@@ -13,7 +12,7 @@ export default function HomePage() {
             <div className="eyebrow"><span /> Learn · Verify · Own</div>
             <h1>让每一次学习，<br/><span>都成为链上履历。</span></h1>
             <p className="lead">从智能合约到 DApp 全栈，在真实的测试网环境中边学边做。课程购买可验证，学习成果由不可转让的 NFT 证书永久记录。</p>
-            <div className="actions"><a className="button primary large" href="#courses">开始探索 <Icon name="arrow" /></a><Link className="button ghost large" href="/courses/solidity-foundations"><Icon name="play" /> 免费试看</Link></div>
+            <div className="actions"><a className="button primary large" href="#courses">开始探索 <Icon name="arrow" /></a><Link className="button ghost large" href="/courses/1"><Icon name="play" /> 免费试看</Link></div>
             <div className="hero-stats"><div><strong>12+</strong><span>实战课程</span></div><div><strong>698</strong><span>链上学习者</span></div><div><strong>324</strong><span>已颁发证书</span></div></div>
           </div>
           <div className="hero-visual" aria-hidden="true">
@@ -29,7 +28,7 @@ export default function HomePage() {
 
       <section className="shell section" id="courses">
         <div className="section-heading"><div><div className="eyebrow">CURATED COURSES</div><h2>从第一笔交易开始</h2></div><p>每门课程都围绕一个可运行的 Web3 项目展开，<br/>把概念变成你真正写过的代码。</p></div>
-        <div className="course-grid">{demoCourses.map((course) => <CourseCard course={course} key={course.id}/>)}</div>
+        <CourseCatalog />
       </section>
 
       <section className="process-section" id="how-it-works">
@@ -44,7 +43,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="shell cta-section"><div><div className="eyebrow">BUILD IN PUBLIC</div><h2>准备好写下第一笔<br/>链上学习记录了吗？</h2><p>从免费试看开始，不需要真实资产。</p></div><Link className="button light large" href="/courses/solidity-foundations">进入第一课 <Icon name="arrow"/></Link></section>
+      <section className="shell cta-section"><div><div className="eyebrow">BUILD IN PUBLIC</div><h2>准备好写下第一笔<br/>链上学习记录了吗？</h2><p>从免费试看开始，不需要真实资产。</p></div><Link className="button light large" href="/courses/1">进入第一课 <Icon name="arrow"/></Link></section>
     </main>
   );
 }

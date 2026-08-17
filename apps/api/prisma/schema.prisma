@@ -35,6 +35,27 @@ model CourseDetail {
   @@map("course_details")
 }
 
+model CourseDraft {
+  id             String            @id @default(cuid())
+  privyDid       String            @map("privy_did")
+  teacherWallet  String            @map("teacher_wallet")
+  title          String
+  description    String
+  coverUrl       String            @map("cover_url")
+  teacherProfile Json?             @map("teacher_profile")
+  metadataUri    String            @unique @map("metadata_uri")
+  priceYD        String            @map("price_yd")
+  lessons        Json
+  status         CourseDraftStatus @default(DRAFT)
+  courseId       BigInt?           @unique @map("course_id")
+  transactionHash String?          @unique @map("transaction_hash")
+  createdAt      DateTime          @default(now()) @map("created_at")
+  updatedAt      DateTime          @updatedAt @map("updated_at")
+
+  @@index([privyDid, teacherWallet, createdAt])
+  @@map("course_drafts")
+}
+
 model Lesson {
   id          String       @id @default(cuid())
   courseId    BigInt       @map("course_id")
@@ -70,6 +91,7 @@ model LearningProgress {
   lessonId       String       @map("lesson_id")
   watchedSeconds Int          @default(0) @map("watched_seconds")
   completed      Boolean      @default(false)
+  startedAt      DateTime     @default(now()) @map("started_at")
   updatedAt      DateTime     @updatedAt @map("updated_at")
   user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   course         CourseDetail @relation(fields: [courseId], references: [courseId], onDelete: Cascade)
@@ -82,13 +104,16 @@ model LearningProgress {
 
 model ProfileNonce {
   id        String    @id @default(cuid())
+  privyDid  String    @map("privy_did")
   wallet    String
+  username  String
+  chainId   Int       @map("chain_id")
   nonce     String    @unique
   expiresAt DateTime  @map("expires_at")
   usedAt    DateTime? @map("used_at")
   createdAt DateTime  @default(now()) @map("created_at")
 
-  @@index([wallet, expiresAt])
+  @@index([privyDid, wallet, expiresAt])
   @@map("profile_nonces")
 }
 
@@ -98,14 +123,33 @@ model OracleEvidence {
   courseId     BigInt   @map("course_id")
   progress     Int
   evidenceHash String   @map("evidence_hash")
+  tokenUri     String   @map("token_uri")
   issuedAt     DateTime @default(now()) @map("issued_at")
 
   @@unique([wallet, courseId])
   @@map("oracle_evidence")
 }
 
+model OracleNonce {
+  id        String    @id @default(cuid())
+  wallet    String
+  courseId  BigInt    @map("course_id")
+  nonce     String    @unique
+  expiresAt DateTime  @map("expires_at")
+  usedAt    DateTime? @map("used_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@index([wallet, courseId, expiresAt])
+  @@map("oracle_nonces")
+}
+
 enum CommentStatus {
   VISIBLE
   HIDDEN
   PENDING
+}
+
+enum CourseDraftStatus {
+  DRAFT
+  SUBMITTED
 }

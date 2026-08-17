@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Providers } from "../components/providers";
 import { SiteHeader } from "../components/site-header";
 import "./globals.css";
 
@@ -11,14 +12,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="zh-CN">
       <body>
-        <SiteHeader />
-        {children}
-        <footer className="site-footer">
-          <div className="shell footer-inner">
-            <div><div className="brand footer-brand"><span className="brand-mark">W3</span><span>Web3 <em>University</em></span></div><p>在测试网上学习，在链上拥有你的成果。</p></div>
-            <div className="footer-note"><span>Sepolia 测试网</span><span>仅供教学演示，不使用真实资金</span></div>
-          </div>
-        </footer>
+        <Providers>
+          <SiteHeader />
+          {children}
+          <footer className="site-footer">
+            <div className="shell footer-inner">
+              <div><div className="brand footer-brand"><span className="brand-mark">W3</span><span>Web3 <em>University</em></span></div><p>在测试链上学习，在链上拥有你的成果。</p></div>
+              <div className="footer-note"><span>{process.env.NEXT_PUBLIC_CHAIN_ID === "11155111" ? "Sepolia 测试链 · 11155111" : "Anvil 本地测试链 · 31337"}</span><span>仅供教学演示，不使用真实资金</span></div>
+            </div>
+          </footer>
+        </Providers>
       </body>
     </html>
   );

@@ -1,7 +1,14 @@
 node_modules/
+.pnpm-store/
 .next/
+.next-dev/
+.open-next/
+.wrangler/
+cloudflare-env.d.ts
 dist/
 coverage/
+playwright-report/
+test-results/
 .env
 .env.local
 out/
@@ -11,6 +18,11 @@ artifacts/
 packages/contracts/lib/
 packages/subgraph/generated/
 packages/subgraph/build/
+packages/cre-workflow/config.staging.json
+packages/cre-workflow/config.production.json
+packages/cre-workflow/secrets.yaml
+packages/cre-workflow/*.wasm*
+project.yaml
 *.log
 *.tsbuildinfo
 .DS_Store

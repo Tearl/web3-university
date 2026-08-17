@@ -367,7 +367,7 @@ forge script script/DeployLocal.s.sol --rpc-url http://127.0.0.1:8545 --broadcas
 
 ---
 
-## 阶段 8：Chainlink Functions 与不可转让证书
+## 阶段 8：Chainlink CRE 与不可转让证书
 
 ### 学习目标
 
@@ -376,10 +376,10 @@ forge script script/DeployLocal.s.sol --rpc-url http://127.0.0.1:8545 --broadcas
 ### 操作步骤
 
 1. 先用本地授权账户手工调用 `fulfillCompletion`，验证证书链路。
-2. 给 `CompletionOracle` 增加真实 Chainlink Functions 请求逻辑。
-3. 把 API key 放入 Chainlink Secrets，不写入源码。
-4. 编写 Functions JavaScript，调用只读完成度 API 并编码响应。
-5. 回调中验证 request ID，确保只处理一次。
+2. 让 `CompletionOracle` 实现 CRE `IReceiver.onReport`，并校验 KeystoneForwarder 与 workflow 身份。
+3. 把 API key 放入 CRE Secrets，不写入源码。
+4. 编写 CRE TypeScript 工作流，监听 `CompletionRequested`、调用只读完成度 API 并聚合结果。
+5. Consumer 验证 request ID 和状态，确保未知、延迟或重复报告不会重复铸造。
 6. 给前端加入请求中、等待 Oracle、已完成、失败可重试四种状态。
 
 ### 必测场景

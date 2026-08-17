@@ -1,7 +1,21 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import { Icon } from "./icons";
+import { WalletButton } from "./wallet-button";
+
+const navigation = [
+  ["探索课程", "/#courses"],
+  ["学习流程", "/#how-it-works"],
+  ["兑换 YD", "/swap"],
+  ["教师中心", "/admin"],
+  ["我的学习", "/profile"],
+] as const;
 
 export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="site-header">
       <div className="shell header-inner">
@@ -10,14 +24,22 @@ export function SiteHeader() {
           <span>Web3 <em>University</em></span>
         </Link>
         <nav className="nav" aria-label="主导航">
-          <Link href="/#courses">探索课程</Link>
-          <Link href="/#how-it-works">学习流程</Link>
-          <Link href="/admin">教师中心</Link>
-          <Link href="/profile">我的学习</Link>
+          {navigation.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
         </nav>
-        <button className="button wallet-button"><span className="status-dot" />连接钱包</button>
-        <button className="menu-button" aria-label="打开菜单"><Icon name="menu" /></button>
+        <WalletButton />
+        <button
+          className="menu-button"
+          aria-controls="mobile-navigation"
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? "关闭菜单" : "打开菜单"}
+          onClick={() => setMenuOpen((open) => !open)}
+          type="button"
+        ><Icon name="menu" /></button>
       </div>
+      <nav id="mobile-navigation" className={`mobile-nav${menuOpen ? " open" : ""}`} aria-label="移动端导航">
+        {navigation.map(([label, href]) => <Link href={href} key={href} onClick={() => setMenuOpen(false)}>{label}</Link>)}
+        <WalletButton />
+      </nav>
     </header>
   );
 }

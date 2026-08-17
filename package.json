@@ -8,9 +8,26 @@
     "build": "pnpm -r --if-present build",
     "typecheck": "pnpm -r --if-present typecheck",
     "test": "pnpm -r --if-present test",
+    "config:check": "pnpm --filter @web3-university/api config:check",
+    "deployment:check": "pnpm --filter @web3-university/api deployment:check",
+    "sepolia:preflight": "pnpm --filter @web3-university/api sepolia:preflight",
+    "cre:preflight": "pnpm --filter @web3-university/api cre:preflight",
+    "subgraph:build": "pnpm --filter @web3-university/subgraph build",
+    "subgraph:test": "pnpm --filter @web3-university/subgraph test:mapping",
+    "subgraph:deploy": "pnpm --filter @web3-university/subgraph deploy:studio --",
+    "cloudflare:build": "pnpm --filter @web3-university/web cloudflare:build",
+    "cloudflare:preview": "pnpm --filter @web3-university/web cloudflare:preview",
+    "cloudflare:deploy": "pnpm --filter @web3-university/web cloudflare:deploy",
+    "docker:api:build": "docker build --platform linux/amd64 -f Dockerfile.api -t web3-university-api .",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "security:check": "node scripts/check-repository-secrets.mjs",
+    "stage-h:live": "pnpm --filter @web3-university/api stage-h:live",
+    "stage-h:check": "pnpm security:check && pnpm check && forge fmt --check --root packages/contracts && forge test --root packages/contracts -vvv && pnpm subgraph:build && pnpm cloudflare:build && pnpm e2e",
     "check": "pnpm typecheck && pnpm test && pnpm build"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "typescript": "^5.9.2"
   }
 }

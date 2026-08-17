@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "network": "sepolia",
+  "chainId": 11155111,
+  "generatedAt": "2026-08-15T03:43:56.942Z",
+  "gitCommit": "ce6769084854a79e524f91aabc55594313427462",
+  "sourceBroadcast": "broadcast/DeploySepolia.s.sol/11155111/run-latest.json",
+  "deployments": {
+    "YDToken": {
+      "address": "0x0a53ad68882dfa8a588637dc95fc2d1301449475",
+      "transactionHash": "0x11568e7c78c5882e74a95de4b244c3144e6192e5550cde4a0470e4c20907d3fe",
+      "blockNumber": 11491622,
+      "status": 1,
+      "abiSha256": "0x406e72de847edfaceaa3441e4e4207ed0c160c04fb7bf1a547c8e5e4cb43c821"
+    },
+    "CourseMarket": {
+      "address": "0x50dff16440510f905f2735c2e9290056878922dd",
+      "transactionHash": "0x47c79cfae1ddee48b558fdb5dee9d3d40c0ed3a529af8d86dc8c151b1c6d1497",
+      "blockNumber": 11491622,
+      "status": 1,
+      "abiSha256": "0x84afb43b1faeb8ccfbc3a766fa1bb769286f7d062a4a06d5aa23491844ab7311"
+    },
+    "CourseCertificate": {
+      "address": "0xfadbd9f71428165829f27cccf624b1bab3cbaa26",
+      "transactionHash": "0xf9acab95f778b14ccc4978f22754ffb00a69f7ce322a3933ccb69f4e53cc206b",
+      "blockNumber": 11491622,
+      "status": 1,
+      "abiSha256": "0x216e11aafa21539d21bd9aeccabeedcf8313c2e6a7ff40cbc0f6f1fd9bd2bb0e"
+    },
+    "CompletionOracle": {
+      "address": "0xa582226603e8a19f1a37394c9e9bf6756b4a639d",
+      "transactionHash": "0xc1bcfd51f9def391a1294afeaf77eb06fe878b2b6988cd5395da35550e9c12dc",
+      "blockNumber": 11491622,
+      "status": 1,
+      "abiSha256": "0xc225f4f1bf383c3c6902bd99d4c68683f8ca5216cadbcfa038cdf21eec795fb3"
+    }
+  },
+  "roleTransactions": [
+    {
+      "contract": "CourseCertificate",
+      "address": "0xfadbd9f71428165829f27cccf624b1bab3cbaa26",
+      "role": "0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6",
+      "grantee": "0xa582226603E8A19F1A37394C9e9Bf6756b4A639d",
+      "transactionHash": "0x017aadbf03233b61c654566d5e92737475f9535d324c505a08b496c069f69cee",
+      "blockNumber": 11491622,
+      "status": 1
+    },
+    {
+      "contract": "CourseMarket",
+      "address": "0x50dff16440510f905f2735c2e9290056878922dd",
+      "role": "0xd16e204b8a42a15ab0ea6bb8ec1ecdfbe69f38074fc865323af19efe7d9573d9",
+      "grantee": "0x574f7d47E9748f1A45aBAa0fe9AE6f4eC8db3C4C",
+      "transactionHash": "0x9c669ff25431a8f5daf8cafb19d265034cba55f670faa4fb8895ae90b786fb61",
+      "blockNumber": 11491622,
+      "status": 1
+    },
+    {
+      "contract": "CompletionOracle",
+      "address": "0xa582226603e8a19f1a37394c9e9bf6756b4a639d",
+      "role": "0x68e79a7bf1e0bc45d0a330c573bc367f9cf464fd326078812f301165fbda4ef1",
+      "grantee": "0x574f7d47E9748f1A45aBAa0fe9AE6f4eC8db3C4C",
+      "transactionHash": "0x1c872de839f7fc4a248391abcfd3733d2141c990e01b591685cd66c7edaec35f",
+      "blockNumber": 11491622,
+      "status": 1
+    }
+  ]
+}

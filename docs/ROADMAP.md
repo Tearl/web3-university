@@ -20,7 +20,7 @@
 ## M4：DEX 与证书
 
 - 创建 WETH/YD、MockUSDC/YD 测试池。
-- Chainlink Functions 回调。
+- Chainlink CRE 工作流与 KeystoneForwarder 写回。
 - ERC721 证书元数据与个人中心展示。
 
 ## M5：验收

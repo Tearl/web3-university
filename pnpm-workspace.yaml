@@ -12,3 +12,7 @@ allowBuilds:
   prisma: false
   sharp: false
   utf-8-validate: false
+  workerd: true
+
+minimumReleaseAgeExclude:
+  - '@chainlink/cre-sdk@1.19.1'

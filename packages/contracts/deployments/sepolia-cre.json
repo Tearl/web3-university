@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "integration": "chainlink-cre",
+  "network": "sepolia",
+  "chainId": 11155111,
+  "generatedAt": "2026-08-16T08:51:36.990Z",
+  "gitCommit": "ce6769084854a79e524f91aabc55594313427462",
+  "sourceBroadcast": "broadcast/DeployCREOracleSepolia.s.sol/11155111/run-latest.json",
+  "completionOracle": {
+    "address": "0xfc534e316b5201699720e1418cf08b2670c7043e",
+    "transactionHash": "0xd3fc506bb90052ad2aa1eea20941caae26944a579c6273bfd683553ca4b3bf82",
+    "blockNumber": 11500092,
+    "status": 1,
+    "abiSha256": "0x25c607904d615d2bf6191590f85ecbe2a00a65f6451912b9005a05e19b0b9616"
+  },
+  "courseMarket": "0x50dff16440510f905f2735c2e9290056878922dd",
+  "certificate": "0xfadbd9f71428165829f27cccf624b1bab3cbaa26",
+  "forwarder": "0xF8344CFd5c43616a4366C34E3EEE75af79a74482",
+  "fallbackOracleSigner": "0xCE3D369B0cF1A0AF98b55C155dc3d32E05f30910"
+}

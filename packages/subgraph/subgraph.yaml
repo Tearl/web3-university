@@ -8,14 +8,16 @@ dataSources:
     name: CourseMarket
     network: sepolia
     source:
-      address: "0x0000000000000000000000000000000000000000"
+      address: "0x50dff16440510f905f2735c2e9290056878922dd"
       abi: CourseMarket
-      startBlock: 0
+      startBlock: 11491622
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.9
       language: wasm/assemblyscript
-      entities: [Course, Purchase]
+      entities:
+        - Course
+        - Purchase
       abis:
         - name: CourseMarket
           file: ./abis/CourseMarket.json
@@ -31,14 +33,15 @@ dataSources:
     name: CourseCertificate
     network: sepolia
     source:
-      address: "0x0000000000000000000000000000000000000000"
+      address: "0xfadbd9f71428165829f27cccf624b1bab3cbaa26"
       abi: CourseCertificate
-      startBlock: 0
+      startBlock: 11491622
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.9
       language: wasm/assemblyscript
-      entities: [Certificate]
+      entities:
+        - Certificate
       abis:
         - name: CourseCertificate
           file: ./abis/CourseCertificate.json

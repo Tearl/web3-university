@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="70%">
+      <stop offset="0" stop-color="#5b43b7"/>
+      <stop offset="0.55" stop-color="#171329"/>
+      <stop offset="1" stop-color="#070a12"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#a795ff"/><stop offset="1" stop-color="#39d9eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" rx="80" fill="url(#bg)"/>
+  <rect x="55" y="55" width="1090" height="1090" rx="55" fill="none" stroke="#a795ff" stroke-opacity=".45" stroke-width="4"/>
+  <circle cx="600" cy="470" r="210" fill="#0d121d" stroke="url(#ring)" stroke-width="18"/>
+  <text x="600" y="515" text-anchor="middle" fill="#f6f7fb" font-family="Arial,sans-serif" font-size="150" font-weight="800">W3</text>
+  <text x="600" y="770" text-anchor="middle" fill="#f6f7fb" font-family="Arial,sans-serif" font-size="62" font-weight="700">COURSE CERTIFICATE</text>
+  <text x="600" y="850" text-anchor="middle" fill="#a795ff" font-family="Arial,sans-serif" font-size="32" letter-spacing="8">SOULBOUND · VERIFIED</text>
+</svg>

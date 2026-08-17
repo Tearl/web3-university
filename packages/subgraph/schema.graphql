@@ -8,6 +8,7 @@ type Course @entity(immutable: false) {
   createdAt: BigInt!
   updatedAt: BigInt!
   purchases: [Purchase!]! @derivedFrom(field: "course")
+  certificates: [Certificate!]! @derivedFrom(field: "course")
 }
 
 type Purchase @entity(immutable: true) {
@@ -17,14 +18,19 @@ type Purchase @entity(immutable: true) {
   priceYD: BigInt!
   purchasedAt: BigInt!
   transactionHash: Bytes!
+  blockNumber: BigInt!
+  logIndex: BigInt!
 }
 
 type Certificate @entity(immutable: true) {
   id: ID!
   tokenId: BigInt!
+  course: Course!
   courseId: BigInt!
   student: Bytes!
   tokenURI: String!
   issuedAt: BigInt!
   transactionHash: Bytes!
+  blockNumber: BigInt!
+  logIndex: BigInt!
 }

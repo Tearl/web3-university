@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "integration": "uniswap-v3",
+  "network": "sepolia",
+  "chainId": 11155111,
+  "generatedAt": "2026-08-16T11:30:09.826Z",
+  "gitCommit": "ce6769084854a79e524f91aabc55594313427462",
+  "sourceBroadcasts": [
+    "broadcast/DeployDexSepolia.s.sol/11155111/run-latest.json",
+    "broadcast/SeedDexLiquiditySepolia.s.sol/11155111/run-latest.json"
+  ],
+  "ownedContracts": {
+    "MockUSDC": {
+      "address": "0x5b3dc28b0b55ee1425e17f83c4aeef0612cb2ef9",
+      "abiSha256": "0x363563493d49026650bed9e7d476fe378a5cbad14b58711eda9cb6a2fd76b12b"
+    },
+    "TestnetSwapGateway": {
+      "address": "0x01be518f6b50fc89d542180bdb622ed463cc23d8",
+      "abiSha256": "0xe00d4f2cb09a35cb9da61b88ea40c960dd43c4d93ff36bbee9bfcc1df6d7882e"
+    }
+  },
+  "tokens": {
+    "yd": "0x0a53ad68882dfa8a588637dc95fc2d1301449475",
+    "weth": "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14",
+    "mockUsdc": "0x5b3dc28b0b55ee1425e17f83c4aeef0612cb2ef9"
+  },
+  "uniswap": {
+    "factory": "0x0227628f3F023bb0B980b67D528571c95c6DaC1c",
+    "positionManager": "0x1238536071E1c677A632429e3655c799b22cDA52",
+    "quoterV2": "0xEd1f6473345F45b75F8179591dd5bA1888cf2FB3",
+    "swapRouter02": "0x3bFA4769FB09eefC5a80d6E87c3B9C650f7Ae48E",
+    "weth": "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14",
+    "fee": 3000,
+    "tickLower": -887220,
+    "tickUpper": 887220
+  },
+  "configuredLiquidity": {
+    "weth": "10000000000000000",
+    "wethPoolYD": "100000000000000000000",
+    "mockUsdc": "100000000",
+    "mockUsdcPoolYD": "100000000000000000000"
+  },
+  "pools": [
+    {
+      "token0": "0x0a53ad68882dfa8a588637dc95fc2d1301449475",
+      "token1": "0xfff9976782d46cc05630d1f6ebab18b2324d6b14",
+      "fee": 3000,
+      "tickSpacing": 60,
+      "address": "0x9e1cd840de92d7e3dac0bfb4ebfb165970dcfc3e",
+      "transactionHash": "0x112bc057807deaf3b1e278ccb4260ec9b1e1351b93336edebdc39ae669d8db1c",
+      "blockNumber": 11500866
+    },
+    {
+      "token0": "0x0a53ad68882dfa8a588637dc95fc2d1301449475",
+      "token1": "0x5b3dc28b0b55ee1425e17f83c4aeef0612cb2ef9",
+      "fee": 3000,
+      "tickSpacing": 60,
+      "address": "0xe94afba7779513f9dae893ce53c049ace9f6f255",
+      "transactionHash": "0xceef6ade683304e176ee11d37150aec07246fa16ddbce5e59c16ab5fa1c5597d",
+      "blockNumber": 11500866
+    }
+  ],
+  "positions": [
+    {
+      "tokenId": "230913",
+      "owner": "0x574f7d47e9748f1a45abaa0fe9ae6f4ec8db3c4c",
+      "transactionHash": "0xc06d9cb9ec4bf1a4e6fe0174c6a79ac0a3fd72a6634949f7dcba7621e622d555",
+      "blockNumber": 11500866
+    },
+    {
+      "tokenId": "230914",
+      "owner": "0x574f7d47e9748f1a45abaa0fe9ae6f4ec8db3c4c",
+      "transactionHash": "0x6b4d1bb972ccd5f80e7d659feb73022443af6f67a42d8aa432a7874a277f8f3f",
+      "blockNumber": 11500866
+    }
+  ]
+}

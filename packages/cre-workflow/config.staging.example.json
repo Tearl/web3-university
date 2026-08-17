@@ -1,0 +1,10 @@
+{
+  "apiBaseUrl": "https://api.example.com",
+  "evms": [
+    {
+      "completionOracleAddress": "0x0000000000000000000000000000000000000000",
+      "chainSelectorName": "ethereum-testnet-sepolia",
+      "gasLimit": "500000"
+    }
+  ]
+}
